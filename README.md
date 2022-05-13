@@ -19,7 +19,9 @@ Specific examples of usage are to be written once the tool is ready.
 
 ## Current Goals
 
-~~Skeleton of the console interface, using Clap.~~
+~~1. Skeleton of the console interface, using Clap.~~
+
+
 2. Extracting text out of both plain text files and PDFs.
 3. Counting the number of times a specific word is encountered in the text.
 4. Trimming the words (removing spaces, punctuation etc.).
