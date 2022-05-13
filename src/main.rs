@@ -1,6 +1,21 @@
 use clap::{Command, Arg};
+use std::path::Path;
+use std::fs::File;
+use std::error::Error;
+use std::io::Write;
 
-fn main() {
+mod extractors;
+use extractors::ExtractText;
+
+fn validate_file_names(input_file: &str, _output_file: &str) -> Result<(), Box<dyn Error>> {
+    if !Path::new(input_file).exists() {
+        println!("WHOOPSIE: input file does not exist!");
+        return Err("WHOOPSIE: input file does not exist!".into())
+    }
+    Ok(())
+}
+
+fn main() -> Result<(), Box<dyn Error>> {
     let clap_matches = Command::new("Freq")
         .about("A simple command line utility for frequency analysis of texts.")
         .arg(
@@ -16,6 +31,16 @@ fn main() {
         )
     .get_matches();
 
-    println!("Path to the text file: {}", clap_matches.value_of("file_with_text").unwrap());
-    println!("Path to the output file: {}", clap_matches.value_of("output_report").unwrap());
+    let input_file = clap_matches.value_of("file_with_text").unwrap();
+    let output_file = clap_matches.value_of("output_report").unwrap();
+    validate_file_names(input_file, output_file)?;
+    
+
+    let mut output = File::create(output_file)?;
+    match ExtractText::from(input_file) {
+        Err(e) => println!("WHOPSIE: {}", e),
+        Ok(out) => write!(output, "{}", out)?,
+    }
+
+    Ok(())
 }
