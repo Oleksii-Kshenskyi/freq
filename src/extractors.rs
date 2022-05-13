@@ -7,6 +7,7 @@ use std::fs;
 use std::error::Error;
 use std::path::Path;
 use infer;
+use pdf_extract;
 
 enum ExtractionKind {
     PDF,
@@ -20,13 +21,18 @@ trait TextExtractor {
 struct PdfExtractor;
 impl TextExtractor for PdfExtractor {
     fn extract_from_file(file_name: &str) -> Result<String, Box<dyn Error>> {
-        Ok(String::from(file_name))
+        println!("pdf");
+        match pdf_extract::extract_text(file_name) {
+            Ok(out) => Ok(out),
+            Err(err_kind) => Err(Box::new(err_kind)),
+        }
     }
 }
 
 struct PlainTextExtractor;
 impl TextExtractor for PlainTextExtractor {
     fn extract_from_file(file_name: &str) -> Result<String, Box<dyn Error>> {
+        println!("plain text");
         Ok(fs::read_to_string(file_name)?)
     }
 }
