@@ -1,15 +1,17 @@
 import sys
-from PyPDF2 import PdfFileReader
+import pdfplumber
 
 def extract_text(source, dest):
-    reader = PdfFileReader(source)
+    reader = pdfplumber.open(source)
 
     text = ""
     for page in reader.pages:
-        text += page.extractText()
+        text += page.extract_text()
         
     with open(dest, "w") as output_file:
         output_file.write(text)
+        
+    reader.close()
         
 
 def main():

@@ -1,2 +1,2 @@
 click
-pypdf2
+pdfplumber
