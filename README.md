@@ -3,7 +3,7 @@ Freq is a command line tool for frequency analysis of human languages based on b
 
 ## How it works
 
-Freq is a command line tool written in Rust. It works the following way:
+Freq is a command line tool. It works the following way:
 
 1. Take an input file with a text in any spaces-separated human language:
   - File can be plain text;
@@ -19,8 +19,7 @@ Specific examples of usage are to be written once the tool is ready.
 
 ## Current Goals
 
-~~1. Skeleton of the console interface, using Clap.~~
-
+~~1. Skeleton of the console interface.~~
 
 2. Extracting text out of both plain text files and PDFs.
 3. Counting the number of times a specific word is encountered in the text.
