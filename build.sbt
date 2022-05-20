@@ -7,7 +7,5 @@ lazy val root = (project in file("."))
     name := "freqtemp"
   )
 
-// https://mvnrepository.com/artifact/org.apache.tika/tika-core
-libraryDependencies += "org.apache.tika" % "tika-core" % "2.4.0"
-// https://mvnrepository.com/artifact/org.apache.tika/tika-parser-pdf-module
-libraryDependencies += "org.apache.tika" % "tika-parser-pdf-module" % "2.4.0"
+// https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox
+libraryDependencies += "org.apache.pdfbox" % "pdfbox" % "2.0.26"

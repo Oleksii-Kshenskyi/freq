@@ -1,25 +1,23 @@
-import java.io.{File, FileInputStream, FileWriter}
-import org.apache.tika.Tika
-import org.apache.tika.parser.*
-import org.apache.tika.metadata.*
-import org.apache.tika.sax.WriteOutContentHandler
-import org.apache.tika.parser.pdf.PDFParser
+import java.io.{File,FileWriter};
+import java.io.IOException;
+
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
 
 object PdfExtractor {
     def main(args: Array[String]): Unit = {
-        val source: String = args(0)
-        val dest: String = args(1)
-        val pdf_file: File = new File(source)
-        val output_file = new FileWriter(dest)
-        val pdf_stream = new FileInputStream(pdf_file)
+        val doc = docFromFileName(args(0))
+        val text = textFromDoc(doc)
+        textToFile(text, args(1))
 
-        val pdf_parser = new PDFParser()
-        val handler = new WriteOutContentHandler(-1)
-        val metadata = new Metadata()
-        val context = new ParseContext()
-        pdf_parser.parse(pdf_stream, handler, metadata, context)
-        output_file.write(handler.toString())
-        output_file.close()
-        pdf_stream.close()
+        doc.close()
+    }
+
+    def docFromFileName(fileName: String): PDDocument = PDDocument.load(File(fileName))
+    def textFromDoc(doc: PDDocument): String = PDFTextStripper().getText(doc)
+    def textToFile(text: String, outFileName: String): Unit = {
+        val writer = FileWriter(outFileName)
+        writer.write(text)
+        writer.close()
     }
 }
