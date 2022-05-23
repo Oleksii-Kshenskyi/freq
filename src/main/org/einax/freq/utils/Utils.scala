@@ -1,11 +1,8 @@
 package org.einax.freq.utils
 
-import java.io.{FileWriter}
+import java.nio.file.{Files,Paths}
 
 object Utils {
-    def stringToFile(string: String, fileName: String): Unit = {
-        val writer = FileWriter(fileName)
-        writer.write(string)
-        writer.close()
-    }
+    def stringToFile(string: String, fileName: String): Unit =
+        Files.write(Paths.get(fileName), string.getBytes)
 }
