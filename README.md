@@ -31,9 +31,10 @@ Specific examples of usage are to be written once the tool is ready.
 ~~5. Outputting the results as a plain text report into a file.~~
 
 
-6. Do proper error handling
-7. Handle command line arguments efficiently with a command line library of sorts, with the possibility of adding more optional arguments to enhance processing
-8. Start converting the app to functional Scala and refactoring it.
-6. To be considered: the possibility of customizing the analysis based on the specific language the text is written in (like deconjugation etc.).
-7. To be considered: different types of reports.
-8. To be considered: any other types of text analysis to help with language learning?
+6. Choosing file type based on magic strings
+7. Do proper error handling
+8. Handle command line arguments efficiently with a command line library of sorts, with the possibility of adding more optional arguments to enhance processing
+9. Start converting the app to functional Scala and refactoring it.
+10. To be considered: the possibility of customizing the analysis based on the specific language the text is written in (like deconjugation etc.).
+11. To be considered: different types of reports.
+12. To be considered: any other types of text analysis to help with language learning?
