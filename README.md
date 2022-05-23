@@ -1,4 +1,5 @@
-# freq
+~~# freq~~
+
 Freq is a command line tool for frequency analysis of human languages based on books or other long texts.
 
 ## How it works
@@ -21,10 +22,18 @@ Specific examples of usage are to be written once the tool is ready.
 
 ~~1. Skeleton of the console interface.~~
 
-2. Extracting text out of both plain text files and PDFs.
-3. Counting the number of times a specific word is encountered in the text.
-4. Trimming the words (removing spaces, punctuation etc.).
-5. Outputting the results as a plain text report into a file.
+~~2. Extracting text out of both plain text files and PDFs.~~
+
+~~3. Counting the number of times a specific word is encountered in the text.~~
+
+~~4. Trimming the words (removing spaces, punctuation etc.).~~
+
+~~5. Outputting the results as a plain text report into a file.~~
+
+
+6. Do proper error handling
+7. Handle command line arguments efficiently with a command line library of sorts, with the possibility of adding more optional arguments to enhance processing
+8. Start converting the app to functional Scala and refactoring it.
 6. To be considered: the possibility of customizing the analysis based on the specific language the text is written in (like deconjugation etc.).
 7. To be considered: different types of reports.
 8. To be considered: any other types of text analysis to help with language learning?
