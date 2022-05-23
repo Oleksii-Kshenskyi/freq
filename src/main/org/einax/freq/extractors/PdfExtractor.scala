@@ -5,6 +5,7 @@ import java.io.IOException
 
 import org.apache.pdfbox.pdmodel.PDDocument
 import org.apache.pdfbox.text.PDFTextStripper
+import java.nio.charset.Charset
 
 class PdfExtractor(extractFrom: String) extends Extractor {
     def extractText(): String = {

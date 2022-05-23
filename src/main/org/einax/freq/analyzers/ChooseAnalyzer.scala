@@ -5,7 +5,7 @@ import org.einax.freq.analyzers.Analysis
 object ChooseAnalyzer {
     def basedOnAnalysisType(analysisType: Int): Analyzer = {
         analysisType match {
-            case Analysis.FREQUENCY_ANALYSIS_TYPE => DummyAnalyzer()
+            case Analysis.FREQUENCY_ANALYSIS_TYPE => FreqAnalyzer()
             case _ => DummyAnalyzer()
         }
     }

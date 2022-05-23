@@ -4,7 +4,7 @@ import scala.collection.mutable
 import scala.collection.mutable.HashMap
 
 class Analysis {
-    var freqAnalysisMap: mutable.HashMap[String, Long] = mutable.HashMap()
+    var freqAnalysisMap = mutable.HashMap[String, Long]().withDefaultValue(0)
 }
 
 object Analysis {
