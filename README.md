@@ -36,6 +36,14 @@ Specific examples of usage are to be written once the tool is ready.
 7. Do proper error handling
 8. Handle command line arguments efficiently with a command line library of sorts, with the possibility of adding more optional arguments to enhance processing
 9. Start converting the app to functional Scala and refactoring it.
-10. To be considered: the possibility of customizing the analysis based on the specific language the text is written in (like deconjugation etc.).
-11. To be considered: different types of reports.
-12. To be considered: any other types of text analysis to help with language learning?
+10. Add analysis data:
+    - overall number of words in the text
+    - number of different words
+    - groups of different words (by times encountered)
+    - total number of these groups
+    - number of words that are encountered only once
+    - percentage of one-shot words ((encountered once) / (number of different words))
+11. Add the functionality to look up frequency stats of a single word.
+12. To be considered: the possibility of customizing the analysis based on the specific language the text is written in (like deconjugation etc.).
+13. To be considered: different types of reports.
+14. To be considered: any other types of text analysis to help with language learning?
