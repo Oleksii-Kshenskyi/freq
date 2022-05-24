@@ -32,8 +32,9 @@ Specific examples of usage are to be written once the tool is ready.
 
 ~~6. Choosing file type based on magic strings~~
 
+~~7. Do proper error handling~~
 
-7. Do proper error handling
+
 8. Handle command line arguments efficiently with a command line library of sorts, with the possibility of adding more optional arguments to enhance processing
 9. Start converting the app to functional Scala and refactoring it.
 10. Add analysis data:
