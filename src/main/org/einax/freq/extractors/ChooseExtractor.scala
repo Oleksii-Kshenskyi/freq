@@ -1,11 +1,8 @@
 package org.einax.freq.extractors
 
-import java.nio.file.Files
-import java.nio.file.Paths
-
 object ChooseExtractor {
-    def basedOnFileType(fileName: String): Extractor = {
-        Files.probeContentType(Paths.get(fileName)) match {
+    def basedOnFileType(fileName: String, contentType: String): Extractor = {
+        contentType match {
             case "application/pdf" => PdfExtractor(fileName)
             case _ => PlainTextExtractor(fileName)
         }
