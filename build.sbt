@@ -7,7 +7,7 @@ lazy val root = (project in file("."))
     name := "freq"
   )
 
-version := "0.2.0-dev"
+version := "0.2.0"
 
 lazy val utils = (project in file("."))
   .settings(
@@ -17,6 +17,8 @@ lazy val utils = (project in file("."))
 
 // https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox
 libraryDependencies += "org.apache.pdfbox" % "pdfbox" % "2.0.26"
+
+libraryDependencies += "org.rogach" %% "scallop" % "4.1.0"
 
 Compile / scalaSource  := file("/src/main")
 Compile / run / mainClass := Some("org.einax.freq.Freq")

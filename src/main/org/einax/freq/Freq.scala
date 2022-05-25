@@ -10,16 +10,19 @@ object Freq {
     def main(args: Array[String]): Unit = {
         System.setProperty("file.encoding", "UTF-8")
         val valid = Validation.init()
-        val contentType = Utils.getFileContentType(args(0))
-        if !valid.validate(args, contentType) then {
+        val clargs = CLArgs(args)
+        val infile: String = Utils.forceOptionOut(clargs.inputFile.toOption)
+        val outfile: String = Utils.forceOptionOut(clargs.outputFile.toOption)
+        val contentType = Utils.getFileContentType(infile)
+        if !valid.validate(Array(infile, outfile), contentType) then {
             println(s"WHOOPS: ${valid.getMessage()}")
             return
         }
 
         try {
-            val extracted_text = ChooseExtractor.basedOnFileType(args(0), contentType).extractText()
+            val extracted_text = ChooseExtractor.basedOnFileType(infile, contentType).extractText()
             val freq_analysis = ChooseAnalyzer.basedOnAnalysisType(Analysis.FREQUENCY_ANALYSIS_TYPE).analyze(extracted_text)
-            ChooseReporter.basedOnAnalysisType(Analysis.FREQUENCY_ANALYSIS_TYPE).reportToFile(args(1), freq_analysis)
+            ChooseReporter.basedOnAnalysisType(Analysis.FREQUENCY_ANALYSIS_TYPE).reportToFile(outfile, freq_analysis)
         }
         catch {
             case e: Exception => println(s"OH NO, UNKNOWN CRITICAL ERROR: ${e.getMessage}")
