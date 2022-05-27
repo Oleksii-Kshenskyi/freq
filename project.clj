@@ -1,7 +1,8 @@
-(defproject freq "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
-  :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
-            :url "https://www.eclipse.org/legal/epl-2.0/"}
-  :dependencies [[org.clojure/clojure "1.10.3"]]
+(defproject freq "0.1.0-dev"
+  :description "A small utility for frequency analysis of texts."
+  :license {:name "MIT"
+            :url "http://unlicense.org/"}
+  :dependencies [[org.clojure/clojure "1.10.3"]
+                 [org.apache.pdfbox/pdfbox "2.0.26"]]
+  :main freq.core
   :repl-options {:init-ns freq.core})

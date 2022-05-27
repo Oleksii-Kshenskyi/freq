@@ -2,6 +2,7 @@ target
 .metals
 .bloop
 .vscode
+.calva
 .idea
 .clj-kondo
 .nrepl-port
