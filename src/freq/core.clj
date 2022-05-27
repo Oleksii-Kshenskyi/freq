@@ -10,7 +10,7 @@
     (spit output-file text)))
 
 (defn -main [& args]
-  (if (and (seq args) (== (count args) 2))
+  (if (== (count args) 2)
     (let [input-file (nth args 0)
           output-file (nth args 1)]
       (pdf-to-text input-file output-file))
