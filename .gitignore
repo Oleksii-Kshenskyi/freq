@@ -3,6 +3,8 @@ target
 .bloop
 .vscode
 .idea
+.clj-kondo
+.nrepl-port
 .bsp
 *.class
 *.iml
