@@ -20,7 +20,6 @@
         n-elems (count split-name)]
     (if (> n-elems  1)
       (last split-name)
-
       (first split-name))))
 
 (defn get-extraction-func [filename] 
