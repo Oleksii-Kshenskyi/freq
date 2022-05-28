@@ -1,6 +1,7 @@
 (ns freq.core
  (:require [freq.extraction :as e]
-           [freq.analysis :as a]))
+           [freq.analysis :as a])
+  (:gen-class))
 
 (defn -main [& args]
   (System/setProperty "file.encoding" "UTF-8")

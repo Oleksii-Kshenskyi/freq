@@ -4,5 +4,6 @@
             :url "http://unlicense.org/"}
   :dependencies [[org.clojure/clojure "1.10.3"]
                  [org.apache.pdfbox/pdfbox "2.0.26"]]
+  :repl-options {:init-ns freq.core}
   :main freq.core
-  :repl-options {:init-ns freq.core})
+  :aot [freq.core])
