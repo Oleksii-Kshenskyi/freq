@@ -1,21 +1,11 @@
-(ns freq.core)
-
-(import org.apache.pdfbox.pdmodel.PDDocument 
-        org.apache.pdfbox.text.PDFTextStripper
-        java.io.File)
-
-(defn pdf-to-text [input-file output-file]
-  (let [doc (PDDocument/load (File. input-file))
-        text (.getText (PDFTextStripper.) doc)]
-    (spit output-file text)))
+(ns freq.core
+ (:require [freq.extraction :as e]))
 
 (defn -main [& args]
+  (System/setProperty "file.encoding" "UTF-8")
   (if (== (count args) 2)
     (let [input-file (nth args 0)
           output-file (nth args 1)]
-      (pdf-to-text input-file output-file))
+      (spit output-file (e/extract-text input-file)))
 
     (println "WHOOPS: Expected exactly 2 arguments: input and output file!")))
-
-
-
