@@ -1,6 +1,7 @@
 (ns freq.core
  (:require [freq.extraction :as e]
-           [freq.analysis :as a])
+           [freq.analysis :as a]
+           [freq.report :as r])
   (:gen-class))
 
 (defn -main [& args]
@@ -11,6 +12,7 @@
       (->> input-file
            (e/extract-text)
            (a/analyze-text)
-           (spit output-file)))
+           (r/freq-map-to-report)
+           (r/report-to-file output-file)))
 
     (println "WHOOPS: Expected exactly 2 arguments: input and output file!")))
